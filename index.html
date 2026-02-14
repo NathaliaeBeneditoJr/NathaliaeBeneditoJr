@@ -1,102 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nathália & Benedito Jr.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Fonte elegante (parecida com convite) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      background-color: #f8f6f2;
-      color: #6b4f1d;
-      text-align: center;
+    :root{
+      --gold: #b48a2c;
+      --gold2:#d8be78;
+      --paper:#fbfaf7;
+      --shadow: rgba(0,0,0,.25);
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      background: #ffffff;
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: "Cormorant Garamond", serif;
+      color:#2f2412;
+      background:#111;
     }
 
-    .monograma img {
-      max-width: 220px;
-      margin: 30px auto;
+    /* Fundo “igual convite”: usa a imagem do convite como backdrop */
+    .bg{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 16px;
+      background:
+        radial-gradient(ellipse at center, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+        url("IMG_8606.jpeg") center/cover no-repeat fixed;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #8b6a2b;
-      margin: 20px 0;
+    /* Cartão principal (convite) */
+    .card{
+      width:min(860px, 100%);
+      background: rgba(251,250,247,.90);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px var(--shadow);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(2px);
     }
 
-    .linha {
-      width: 140px;
-      height: 2px;
-      background: #c8a24a;
-      margin: 30px auto;
+    /* Moldura dourada dupla estilo convite */
+    .frame{
+      position:relative;
+      padding: 30px 22px;
+    }
+    .frame:before,
+    .frame:after{
+      content:"";
+      position:absolute;
+      inset: 18px;
+      border: 2px solid rgba(180,138,44,.55);
+      border-radius: 14px;
+      pointer-events:none;
+    }
+    .frame:after{
+      inset: 28px;
+      border: 1px solid rgba(216,190,120,.55);
+      border-radius: 12px;
     }
 
-    .save img {
-      max-width: 360px;
-      margin: 40px auto;
-      display: block;
+    .content{
+      position:relative;
+      padding: 54px 30px 44px;
+      text-align:center;
     }
 
-    .data {
-      font-size: 1.5rem;
-      margin-top: 20px;
+    .monogram{
+      width: 200px;
+      max-width: 52vw;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.18));
     }
 
-    .local {
-      font-size: 1.2rem;
-      margin-top: 8px;
+    .names{
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: .5px;
+      color:#2a2011;
+      margin: 10px 0 8px;
+    }
+
+    .subtitle{
+      font-size: clamp(18px, 2.8vw, 22px);
+      color:#5a4724;
+      margin: 0 0 26px;
       font-style: italic;
     }
 
-    footer {
-      margin-top: 50px;
-      font-size: 1.1rem;
-      color: #8b6a2b;
+    .divider{
+      width: 140px;
+      height: 2px;
+      margin: 18px auto 28px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .save{
+      width: min(520px, 92%);
+      margin: 0 auto 18px;
+      border-radius: 14px;
+      overflow:hidden;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      border: 1px solid rgba(180,138,44,.25);
+      background: var(--paper);
+    }
+    .save img{
+      width:100%;
+      display:block;
+    }
+
+    .info{
+      margin-top: 18px;
+      font-size: clamp(18px, 2.6vw, 22px);
+      color:#2f2412;
+      line-height: 1.25;
+    }
+    .info b{
+      color:#3b2d14;
+    }
+
+    .tiny{
+      margin-top: 16px;
+      font-size: 16px;
+      color:#6a5733;
+    }
+
+    .btnrow{
+      margin-top: 26px;
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(180,138,44,.55);
+      color:#3b2d14;
+      background: rgba(255,255,255,.65);
+      transition:.2s;
+      font-size: 16px;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.85);
+    }
+
+    /* Mobile refinements */
+    @media (max-width: 480px){
+      .content{ padding: 46px 18px 36px; }
+      .frame{ padding: 22px 14px; }
+      .frame:before{ inset: 14px; }
+      .frame:after{ inset: 22px; }
     }
   </style>
 </head>
 
 <body>
+  <main class="bg">
+    <section class="card">
+      <div class="frame">
+        <div class="content">
 
-  <div class="container">
+          <!-- 1) Monograma (troque o nome do arquivo se necessário) -->
+          <img class="monogram" src="2EF34813-511B-42E2-950F.jpeg" alt="Monograma N & B" />
 
-    <!-- MONOGRAMA -->
-    <div class="monograma">
-      <img src="2EF34813-511B-42E2-950F.jpeg" alt="Monograma N&B">
-    </div>
+          <div class="divider"></div>
 
-    <div class="linha"></div>
+          <h1 class="names">Nathália & Benedito Jr.</h1>
+          <p class="subtitle">02 de Maio de 2026 • Pires do Rio – GO</p>
 
-    <h1>Nathália & Benedito Jr.</h1>
+          <!-- 2) Save the Date (troque o nome do arquivo se necessário) -->
+          <div class="save">
+            <img src="F0768A17-5B59-44F9-BCD.jpeg" alt="Save the Date" />
+          </div>
 
-    <!-- SAVE THE DATE -->
-    <div class="save">
-      <img src="F0768A17-5B59-44F9-BCD.jpeg" alt="Save the Date">
-    </div>
+          <p class="info">
+            <b>Data:</b> 02 de Maio de 2026<br>
+            <b>Local:</b> Pires do Rio – GO
+          </p>
 
-    <div class="data">
-      02 de Maio de 2026
-    </div>
+          <p class="tiny">
+            Em breve, mais informações do evento por aqui.
+          </p>
 
-    <div class="local">
-      Pires do Rio – GO
-    </div>
+          <div class="btnrow">
+            <!-- Opcional: quando quiser, a gente coloca link do Google Maps aqui -->
+            <a class="btn" href="#"
+               onclick="alert('Depois eu coloco o link do Maps pra você 😉'); return false;">
+               Como chegar
+            </a>
+            <a class="btn" href="#"
+               onclick="alert('Depois eu crio um RSVP (confirmar presença) pra você 😉'); return false;">
+               Confirmar presença
+            </a>
+          </div>
 
-    <footer>
-      <p>Com amor, esperamos por você 🤍</p>
-    </footer>
-
-  </div>
-
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
+    
