@@ -1,115 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Nathalia & Benedito Jr.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Nathália & Benedito Jr.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: #f8f8f8;
-      color: #333;
+      font-family: "Playfair Display", serif;
+      background-color: #f8f6f2;
+      color: #6b4f1d;
       text-align: center;
     }
-    header {
-      padding: 80px 20px;
-      background: white;
-    }
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-weight: normal;
-      margin-top: 0;
-      color: #777;
-    }
-    section {
-      padding: 50px 20px;
-    }
-    .box {
-      max-width: 700px;
+
+    .container {
+      max-width: 900px;
       margin: auto;
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
+      padding: 40px 20px;
+      background: #ffffff;
     }
-    .contador {
-      font-size: 28px;
+
+    .monograma img {
+      max-width: 220px;
+      margin: 30px auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #8b6a2b;
+      margin: 20px 0;
+    }
+
+    .linha {
+      width: 140px;
+      height: 2px;
+      background: #c8a24a;
+      margin: 30px auto;
+    }
+
+    .save img {
+      max-width: 360px;
+      margin: 40px auto;
+      display: block;
+    }
+
+    .data {
+      font-size: 1.5rem;
       margin-top: 20px;
     }
-    footer {
-      padding: 30px;
-      font-size: 14px;
-      color: #777;
+
+    .local {
+      font-size: 1.2rem;
+      margin-top: 8px;
+      font-style: italic;
     }
-    a {
-      color: #333;
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
+
+    footer {
+      margin-top: 50px;
+      font-size: 1.1rem;
+      color: #8b6a2b;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Nathalia & Benedito Jr.</h1>
-  <h2>02 de maio de 2026 • Pires do Rio – GO</h2>
-</header>
+  <div class="container">
 
-<section>
-  <div class="box">
-    <h3>O Grande Dia</h3>
-    <p>
-      Estamos muito felizes em compartilhar esse momento especial com você.
-      Aqui você encontrará todas as informações sobre o nosso casamento.
-    </p>
-    <p>
-      <strong>Data:</strong> 02/05/2026<br>
-      <strong>Horário:</strong> 19h<br>
-      <strong>Local:</strong> (definir local)
-    </p>
-    <p>
-      <a href="https://www.google.com/maps?q=Pires+do+Rio+GO" target="_blank">
-        Ver local no Google Maps
-      </a>
-    </p>
-    <div class="contador" id="contador">Carregando contagem regressiva…</div>
+    <!-- MONOGRAMA -->
+    <div class="monograma">
+      <img src="2EF34813-511B-42E2-950F.jpeg" alt="Monograma N&B">
+    </div>
+
+    <div class="linha"></div>
+
+    <h1>Nathália & Benedito Jr.</h1>
+
+    <!-- SAVE THE DATE -->
+    <div class="save">
+      <img src="F0768A17-5B59-44F9-BCD.jpeg" alt="Save the Date">
+    </div>
+
+    <div class="data">
+      02 de Maio de 2026
+    </div>
+
+    <div class="local">
+      Pires do Rio – GO
+    </div>
+
+    <footer>
+      <p>Com amor, esperamos por você 🤍</p>
+    </footer>
+
   </div>
-</section>
-
-<section>
-  <div class="box">
-    <h3>Confirmação de Presença</h3>
-    <p>
-      Em breve disponibilizaremos o formulário para confirmação de presença.
-    </p>
-  </div>
-</section>
-
-<footer>
-  Nathalia & Benedito Jr. • 2026
-</footer>
-
-<script>
-  const dataCasamento = new Date("2026-05-02T19:00:00").getTime();
-
-  setInterval(() => {
-    const agora = new Date().getTime();
-    const diferenca = dataCasamento - agora;
-
-    if (diferenca < 0) {
-      document.getElementById("contador").innerHTML = "É hoje! 💍";
-      return;
-    }
-
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    document.getElementById("contador").innerHTML =
-      dias + " dias para o grande dia 💍";
-  }, 1000);
-</script>
 
 </body>
 </html>
